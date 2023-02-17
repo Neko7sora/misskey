@@ -2,10 +2,10 @@
 	"name": "sw",
 	"private": true,
 	"scripts": {
-		"watch": "node build.js watch",
-		"build": "node build.js",
-		"lint": "tsc --noEmit && eslint --quiet src/**/*.ts"
-	},
+    "build": "node build.js",
+    "lint": "tsc --noEmit && eslint --quiet src/**/*.ts",
+    "watch": "node build.js watch"
+},
 	"dependencies": {
 		"esbuild": "0.14.42",
 		"idb-keyval": "6.2.0",
