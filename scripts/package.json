@@ -1,0 +1,37 @@
+{
+	"name": "scripts",
+	"private": true,
+	"scripts": {
+		"build-post": "run-p build-post:*",
+		"build-post:backend:script": "pnpm shx cp -r ./../packages/backend/src/server/web/bios.js ./../packages/backend/built/server/web && pnpm shx cp -r ./../packages/backend/src/server/web/cli.js ./../packages/backend/built/server/web",
+		"build-post:backend:style": "pnpm postcss ./../packages/backend/src/server/web/style.css > ./../packages/backend/built/server/web/style.css && pnpm postcss ./../packages/backend/src/server/web/bios.css > ./../packages/backend/built/server/web/bios.css && pnpm postcss ./../packages/backend/src/server/web/cli.css > ./../packages/backend/built/server/web/cli.css",
+		"build-post:backend:views": "pnpm shx cp -r ./../packages/backend/src/server/web/views/ ./../packages/backend/built/server/web/views",
+		"build-post:frontend:fonts": "pnpm shx cp -r ./../packages/frontend/node_modules/three/examples/fonts/ ./../built/_frontend_dist_/fonts",
+		"build-post:frontend:tabler-icons": "pnpm shx cp -r ./../packages/frontend/node_modules/@tabler/icons-webfont/ ./../built/_frontend_dist_/tabler-icons",
+		"build-post:script": "node ./build-post.js",
+		"build-pre": "node ./build-pre.js",
+		"clean": "run-p clean:*",
+		"clean-all": "run-p clean:* clean-all:*",
+		"clean-all:backend": "shx rm -rf ./../packages/backend/node_modules",
+		"clean-all:built": "shx rm -rf ./../node_modules",
+		"clean-all:frontend": "shx rm -rf ./../packages/frontend/node_modules",
+		"clean-all:pnpm": "cd ./../ && pnpm store prune",
+		"clean-all:scripts": "shx rm -rf ./../scripts/node_modules",
+		"clean-all:sw": "shx rm -rf ./../packages/sw/node_modules",
+		"clean:backend": "shx rm -rf ./../packages/backend/built",
+		"clean:built": "shx rm -rf ./../built",
+		"clean:frontend": "shx rm -rf ./../packages/frontend/built",
+		"clean:sw": "shx rm -rf ./../packages/sw/built",
+		"dev": "node ./dev.js",
+		"dev-watch": "node ./dev-watch.js"
+	},
+	"devDependencies": {
+		"chokidar": "3.5.3",
+		"cssnano": "^5.1.15",
+		"execa": "5.1.1",
+		"npm-run-all": "^4.1.5",
+		"postcss": "^8.4.21",
+		"postcss-cli": "^10.1.0",
+		"shx": "^0.3.4"
+	}
+}
