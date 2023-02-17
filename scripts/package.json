@@ -2,7 +2,7 @@
 	"name": "scripts",
 	"private": true,
 	"scripts": {
-		"build-post": "run-p build-post:*",
+		"build-post": "run-p build-post:**",
 		"build-post:backend:script": "terser ./../packages/backend/src/server/web/bios.js ./../packages/backend/built/server/web/bios.js --toplevel  && terser ./../packages/backend/src/server/web/cli.js ./../packages/backend/built/server/web/cli.js --toplevel",
 		"build-post:backend:style": "postcss ./../packages/backend/src/server/web/style.css > ./../packages/backend/built/server/web/style.css && postcss ./../packages/backend/src/server/web/bios.css > ./../packages/backend/built/server/web/bios.css && postcss ./../packages/backend/src/server/web/cli.css > ./../packages/backend/built/server/web/cli.css",
 		"build-post:backend:views": "shx cp -r ./../packages/backend/src/server/web/views/ ./../packages/backend/built/server/web/views",
