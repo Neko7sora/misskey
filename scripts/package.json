@@ -23,7 +23,7 @@
 		"clean:frontend": "shx rm -rf ./../packages/frontend/built",
 		"clean:sw": "shx rm -rf ./../packages/sw/built",
 		"dev": "node ./dev.js",
-		"dev-watch": "node ./dev-watch.js"
+		"watch": "node ./watch.js"
 	},
 	"devDependencies": {
 		"chokidar": "3.5.3",

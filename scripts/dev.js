@@ -2,7 +2,7 @@ const execa = require('execa');
 const fs = require('fs');
 
 (async () => {
-	execa('pnpm', ['dev-watch'], {
+	execa('pnpm', ['watch'], {
 		cwd: __dirname + '/',
 		stdout: process.stdout,
 		stderr: process.stderr,

@@ -1,0 +1,88 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"pipeline": {
+		"build": {
+			"dependsOn": [
+				"^build"
+			],
+			"inputs": [
+				"packages/backend/src/**/*.ts",
+				"packages/frontend/**",
+				"packages/sw/**"
+			],
+			"outputs": [
+				"built/meta.json"
+			]
+		},
+		"build-post": {
+			"dependsOn": [
+				"^build-post"
+			]
+		},
+		"build-pre": {
+			"dependsOn": [
+				"^build-pre"
+			],
+			"inputs": [
+				"package.json",
+				"scripts/build-pre.js"
+			]
+		},
+		"clean": {
+			"cache": false
+		},
+		"clean-all": {
+			"cache": false
+		},
+		"dev": {
+			"cache": false,
+			"inputs": [
+				"scripts/dev.js"
+			],
+			"persistent": true
+		},
+		"init": {
+			"dependsOn": [
+				"migrate"
+			]
+		},
+		"jest": {
+			"env": [
+				"NODE_ENV"
+			]
+		},
+		"jest-and-coverage": {
+			"env": [
+				"NODE_ENV"
+			]
+		},
+		"jest-clear": {
+			"env": [
+				"NODE_ENV"
+			]
+		},
+		"lint": {},
+		"migrate": {},
+		"migrateandstart": {
+			"dependsOn": [
+				"migrate",
+				"start"
+			]
+		},
+		"start": {
+			"persistent": true
+		},
+		"start:test": {
+			"env": [
+				"NODE_ENV"
+			],
+			"persistent": true
+		},
+		"watch": {
+			"dependsOn": [
+				"dev"
+			],
+			"persistent": true
+		}
+	}
+}
