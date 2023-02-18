@@ -2,10 +2,10 @@
 	"name": "frontend",
 	"private": true,
 	"scripts": {
-    "build": "vite build",
-    "lint": "vue-tsc --noEmit && eslint --quiet \"src/**/*.{ts,vue}\"",
-    "watch": "vite"
-},
+		"build": "vite build",
+		"lint": "vue-tsc --noEmit && eslint --quiet \"src/**/*.{ts,vue}\"",
+		"watch": "vite"
+	},
 	"dependencies": {
 		"@discordapp/twemoji": "14.0.2",
 		"@rollup/plugin-alias": "4.0.3",

@@ -20,6 +20,7 @@ services:
     image: redis:7-alpine
     networks:
       - internal_network
+      - external_network
     volumes:
       - redis-data:/data
     healthcheck:
@@ -32,6 +33,7 @@ services:
     image: postgres:15-alpine
     networks:
       - internal_network
+      - external_network
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres

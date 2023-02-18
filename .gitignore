@@ -63,3 +63,4 @@ ormconfig.json
 # turbo
 .turbo
 
+.pnpm-store

@@ -6,9 +6,9 @@
 				"^build"
 			],
 			"inputs": [
-				"packages/backend/src/**/*.ts",
-				"packages/frontend/**",
-				"packages/sw/**"
+				"packages/**",
+				"scripts/**",
+				"**/built/**"
 			],
 			"outputs": [
 				"built/meta.json"
@@ -17,6 +17,13 @@
 		"build-post": {
 			"dependsOn": [
 				"^build-post"
+			],
+			"inputs": [
+				"scripts/**",
+				"**/built/**"
+			],
+			"outputs": [
+				"**/built/**"
 			]
 		},
 		"build-pre": {
@@ -24,15 +31,19 @@
 				"^build-pre"
 			],
 			"inputs": [
-				"package.json",
-				"scripts/build-pre.js"
+				"scripts/**"
 			]
 		},
 		"clean": {
-			"cache": false
+			"inputs": [
+				"**/built/**"
+			]
 		},
 		"clean-all": {
-			"cache": false
+			"inputs": [
+				"**/built/**",
+				"**/node_modules/**"
+			]
 		},
 		"dev": {
 			"cache": false,
@@ -40,11 +51,6 @@
 				"scripts/dev.js"
 			],
 			"persistent": true
-		},
-		"init": {
-			"dependsOn": [
-				"migrate"
-			]
 		},
 		"jest": {
 			"env": [
@@ -63,25 +69,19 @@
 		},
 		"lint": {},
 		"migrate": {},
-		"migrateandstart": {
-			"dependsOn": [
-				"migrate",
-				"start"
-			]
-		},
 		"start": {
+			"cache": false,
 			"persistent": true
 		},
 		"start:test": {
+			"cache": false,
 			"env": [
 				"NODE_ENV"
 			],
 			"persistent": true
 		},
 		"watch": {
-			"dependsOn": [
-				"dev"
-			],
+			"cache": false,
 			"persistent": true
 		}
 	}
